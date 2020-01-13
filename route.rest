@@ -1,0 +1,68 @@
+# Get All
+GET http://127.0.0.1:8000/employees
+
+# Get One
+###
+GET http://127.0.0.1:8000/employees/1
+
+# Search
+###
+POST  http://localhost:8080/employees/search?keyword=John
+Content-Type: application/json
+
+# Create
+###
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+    "employeeName": "Yusuf Mbonigaba",
+    "nationalId": "1199680019942170",
+    "phoneNumber": "+250728526678",
+    "email": "mbonigabay@gmail.com",
+    "dateOfBirth": "2000-12-31T22:00:00.000+0000",
+    "status": "active",
+    "position": "Manager"
+}
+
+# update
+###
+PUT http://localhost:8080/api/employee/update/1
+Content-Type: application/json
+
+{
+    "employeeName": "Jane Doe",
+    "nationalId": "1223456789",
+    "phoneNumber": "078526678",
+    "email": "jane@gmail.com",
+    "dateOfBirth": "2018-12-31T22:00:00.000+0000",
+    "status": "active",
+    "position": "Manager"
+}
+
+# Delete
+###
+DELETE  http://localhost:8080/api/employee/delete/11
+Content-Type: application/json
+
+
+# activate
+###
+PUT http://localhost:8080/employees/1/activate
+Content-Type: application/json
+
+# suspend
+###
+PUT http://localhost:8080/employees/1/suspend
+Content-Type: application/json
+
+# send message
+###
+POST   http://localhost:8080/send
+Content-Type: application/json
+
+{
+    "toAddress": "mbonigabay@gmail.com",
+    "subject": "hi subject",
+    "body": "from springboot"
+}
