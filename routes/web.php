@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware'=> 'jwt'], function(){
 Route::get('api/employees', 'EmployeesController@index');
 Route::get('api/employees/{employee_id}', 'EmployeesController@show');
 Route::post('api/employees', 'EmployeesController@store');
@@ -23,3 +24,4 @@ Route::delete('api/employees/{employee_id}', 'EmployeesController@destroy');
 Route::get('api/employees/{employee_id}/activate', 'EmployeesController@activate');
 Route::get('api/employees/{employee_id}/suspend', 'EmployeesController@suspend');
 Route::post('api/employees/search', 'EmployeesController@search');
+});
